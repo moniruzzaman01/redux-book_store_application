@@ -1,8 +1,24 @@
+import { useDispatch } from "react-redux";
+import addBookToDB from "../redux/thunk/addBookToDB";
+
 export default function AddBook() {
+  const dispatch = useDispatch();
+
+  const handleAddBook = (e) => {
+    e.preventDefault();
+    const bookName = e.target.name.value;
+    const author = e.target.author.value;
+    const thumbnail = e.target.thumbnail.value;
+    const price = e.target.price.value;
+    const featured = e.target.featured.checked;
+    console.log("called", { bookName, author, thumbnail, price, featured });
+    dispatch(addBookToDB({ bookName, author, thumbnail, price, featured }));
+  };
+
   return (
     <div className="p-4 overflow-hidden bg-white shadow-cardShadow rounded-md">
       <h4 className="mb-8 text-xl font-bold text-center">Add New Book</h4>
-      <form className="book-form">
+      <form onSubmit={handleAddBook} className="book-form">
         <div className="space-y-2">
           <label htmlFor="name">Book Name</label>
           <input

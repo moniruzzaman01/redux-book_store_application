@@ -26,6 +26,22 @@
       "rating": 4,
       "featured": true,
       "id": 4
+    },
+    {
+      "bookName": "The great novel",
+      "author": "me",
+      "thumbnail": "janina",
+      "price": "1050",
+      "featured": false,
+      "id": 5
+    },
+    {
+      "bookName": "The great novel 1",
+      "author": "me 1",
+      "thumbnail": "janina 1",
+      "price": "100",
+      "featured": true,
+      "id": 6
     }
   ]
 }
