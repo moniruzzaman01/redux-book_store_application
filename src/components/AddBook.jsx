@@ -11,7 +11,6 @@ export default function AddBook() {
     const thumbnail = e.target.thumbnail.value;
     const price = e.target.price.value;
     const featured = e.target.featured.checked;
-    console.log("called", { bookName, author, thumbnail, price, featured });
     dispatch(addBookToDB({ bookName, author, thumbnail, price, featured }));
   };
 

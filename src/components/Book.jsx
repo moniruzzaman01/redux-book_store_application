@@ -1,7 +1,23 @@
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import deleteFromDB from "../redux/thunk/deleteFromDB";
 
 export default function Book({ book }) {
-  const { author, featured, name: bookName, price, rating, thumbnail } = book;
+  const dispatch = useDispatch();
+  const {
+    id,
+    author,
+    featured,
+    name: bookName,
+    price,
+    rating,
+    thumbnail,
+  } = book;
+
+  const handleBookDelete = (bookId) => {
+    dispatch(deleteFromDB(bookId));
+  };
+
   return (
     <div className="book-card">
       <img
@@ -32,7 +48,7 @@ export default function Book({ book }) {
                 />
               </svg>
             </button>
-            <button className="lws-delete">
+            <button onClick={() => handleBookDelete(id)} className="lws-delete">
               <svg
                 fill="none"
                 viewBox="0 0 24 24"
