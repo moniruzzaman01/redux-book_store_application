@@ -3,8 +3,12 @@ import AddBook from "./components/AddBook";
 import Books from "./components/Books";
 import BooksFilter from "./components/BooksFilter";
 import Navbar from "./components/Navbar";
+import { useSelector } from "react-redux";
 
 function App() {
+  const books = useSelector((state) => state.books);
+  console.log(books);
+
   return (
     <div>
       <Navbar />
