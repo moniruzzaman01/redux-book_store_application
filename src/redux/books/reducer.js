@@ -1,4 +1,4 @@
-import { ADDBOOK, UPDATEBOOK, DELETEBOOK } from "./actionTypes";
+import { ADDBOOK, UPDATEBOOK, DELETEBOOK, LOADBOOK } from "./actionTypes";
 
 //initial state
 const initialState = [
@@ -27,6 +27,9 @@ const initialState = [
 //reducer function
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOADBOOK:
+      return action.payload.bookInfo;
+
     case ADDBOOK:
       return [
         ...state,
@@ -53,6 +56,7 @@ const reducer = (state = initialState, action) => {
       return state.filter((book) => book.id != action.payload.bookId);
 
     default:
+      console.log("action dispatched!!!");
       return state;
   }
 };

@@ -1,13 +1,19 @@
+import { useEffect } from "react";
 import "./App.css";
 import AddBook from "./components/AddBook";
 import Books from "./components/Books";
 import BooksFilter from "./components/BooksFilter";
 import Navbar from "./components/Navbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import loadBookFromDB from "./redux/thunk/loadBookFromDB";
 
 function App() {
   const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
   console.log(books);
+  useEffect(() => {
+    dispatch(loadBookFromDB);
+  }, [dispatch]);
 
   return (
     <div>
