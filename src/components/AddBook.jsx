@@ -6,12 +6,12 @@ export default function AddBook() {
 
   const handleAddBook = (e) => {
     e.preventDefault();
-    const bookName = e.target.name.value;
+    const name = e.target.name.value;
     const author = e.target.author.value;
     const thumbnail = e.target.thumbnail.value;
     const price = e.target.price.value;
     const featured = e.target.featured.checked;
-    dispatch(addBookToDB({ bookName, author, thumbnail, price, featured }));
+    dispatch(addBookToDB({ name, author, thumbnail, price, featured }));
   };
 
   return (

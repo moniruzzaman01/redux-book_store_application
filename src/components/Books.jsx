@@ -7,7 +7,7 @@ export default function Books() {
   const books = useSelector((state) => state.books);
   const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();
-  // console.log(books, filters);
+
   useEffect(() => {
     dispatch(loadBookFromDB);
   }, [dispatch]);
@@ -22,6 +22,9 @@ export default function Books() {
             default:
               return true;
           }
+        })
+        .filter((book) => {
+          return book.name.toLowerCase().includes(filters.searchText);
         })
         .map((book, key) => (
           <Book key={key} book={book} />

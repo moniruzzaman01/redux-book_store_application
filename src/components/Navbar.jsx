@@ -1,6 +1,15 @@
+import { useDispatch } from "react-redux";
 import logo from "../assets/images/logo.svg";
+import { bookNameFilter } from "../redux/filters/actions";
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchText = e.target.searchText.value;
+    dispatch(bookNameFilter(searchText));
+  };
   return (
     <nav className="py-4 2xl:px-6">
       <div className="container flex items-center justify-between">
@@ -12,7 +21,7 @@ export default function Navbar() {
           <li className="cursor-pointer">My Collection</li>
         </ul>
 
-        <form className="flex items-center">
+        <form onSubmit={handleSearch} className="flex items-center">
           <div className="group relative rounded-md bg-white">
             <svg
               width="20"
@@ -31,6 +40,7 @@ export default function Navbar() {
               placeholder="Filter books..."
               className="search"
               id="lws-searchBook"
+              name="searchText"
             />
           </div>
         </form>
