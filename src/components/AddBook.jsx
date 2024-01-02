@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import addBookToDB from "../redux/thunk/addBookToDB";
 import { useEffect, useState } from "react";
-import { updateBook } from "../redux/books/actions";
+import updateBookToDB from "../redux/thunk/updateBookToDB";
 
 export default function AddBook() {
   const filters = useSelector((state) => state.filters);
@@ -16,12 +16,15 @@ export default function AddBook() {
   const [featured, setFeatured] = useState(false);
   const [ratings, setRatings] = useState("");
   useEffect(() => {
-    setName(book?.name);
-    setAuthor(book?.author);
-    setThumbnail(book?.thumbnail);
-    setPrice(book?.price);
-    setFeatured(book?.featured);
-    setRatings(book?.ratings);
+    if (book) {
+      const { name, author, thumbnail, price, featured, ratings } = book;
+      setName(name);
+      setAuthor(author);
+      setThumbnail(thumbnail);
+      setPrice(price);
+      setFeatured(featured);
+      setRatings(ratings);
+    }
   }, [book]);
 
   const handleAddBook = () => {
@@ -38,7 +41,14 @@ export default function AddBook() {
 
   const handleUpdateBook = () => {
     dispatch(
-      updateBook(book.id, { name, author, thumbnail, price, ratings, featured })
+      updateBookToDB(book.id, {
+        name,
+        author,
+        thumbnail,
+        price,
+        ratings,
+        featured,
+      })
     );
     setName("");
     setAuthor("");

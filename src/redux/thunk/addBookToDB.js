@@ -2,14 +2,15 @@ import { addBook } from "../books/actions";
 
 const addBookToDB = (bookInfo) => {
   return async (dispatch) => {
-    await fetch("http://localhost:9000/books", {
+    const response = await fetch("http://localhost:9000/books", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(bookInfo),
     });
-    dispatch(addBook(bookInfo));
+    const data = await response.json();
+    dispatch(addBook(data));
   };
 };
 export default addBookToDB;
