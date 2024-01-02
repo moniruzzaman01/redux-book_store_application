@@ -13,6 +13,7 @@ export const addBook = (bookInfo) => {
   };
 };
 export const updateBook = (bookId, updatedBookInfo) => {
+  console.log(bookId, updatedBookInfo);
   return {
     type: UPDATEBOOK,
     payload: { bookId, updatedBookInfo },

@@ -1,4 +1,4 @@
-import { BOOKTYPEFILTER, BOOKNAMEFILTER } from "./actionTypes";
+import { BOOKTYPEFILTER, BOOKNAMEFILTER, BOOKIDFILTER } from "./actionTypes";
 
 export const bookTypeFilter = (isFeatured) => {
   return {
@@ -9,8 +9,12 @@ export const bookTypeFilter = (isFeatured) => {
 export const bookNameFilter = (searchText) => {
   return {
     type: BOOKNAMEFILTER,
-    payload: {
-      searchText,
-    },
+    payload: { searchText },
+  };
+};
+export const bookIdFilter = (updateBookId) => {
+  return {
+    type: BOOKIDFILTER,
+    payload: { updateBookId },
   };
 };

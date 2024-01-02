@@ -46,20 +46,13 @@
       "id": 8
     },
     {
-      "name": "hello",
-      "author": "name",
-      "thumbnail": "image",
-      "price": "100",
+      "name": "name",
+      "author": "author",
+      "thumbnail": "url",
+      "price": "200",
+      "ratings": "1",
       "featured": true,
       "id": 9
-    },
-    {
-      "name": "sdfjsadlkf",
-      "author": "sdjflksdfjksdjfak",
-      "thumbnail": "asdfkjskdf",
-      "price": "12313",
-      "featured": false,
-      "id": 10
     }
   ]
 }

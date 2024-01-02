@@ -1,8 +1,9 @@
-import { BOOKTYPEFILTER, BOOKNAMEFILTER } from "./actionTypes";
+import { BOOKTYPEFILTER, BOOKNAMEFILTER, BOOKIDFILTER } from "./actionTypes";
 
 const initialState = {
   isFeatured: false,
   searchText: "",
+  updateBookId: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchText: action.payload.searchText,
+      };
+
+    case BOOKIDFILTER:
+      return {
+        ...state,
+        updateBookId: action.payload.updateBookId,
       };
 
     default:

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import deleteFromDB from "../redux/thunk/deleteFromDB";
+import { bookIdFilter } from "../redux/filters/actions";
 
 export default function Book({ book }) {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export default function Book({ book }) {
     dispatch(deleteFromDB(bookId));
   };
   const handleBookEdit = (bookId) => {
-    console.log(`bookId`, bookId);
+    dispatch(bookIdFilter(bookId));
   };
 
   return (

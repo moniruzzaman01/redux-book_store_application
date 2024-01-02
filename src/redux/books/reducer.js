@@ -42,8 +42,9 @@ const reducer = (state = initialState, action) => {
     case UPDATEBOOK: {
       const newState = state.map((book) => {
         if (book.id == action.payload.bookId) {
+          console.log(book, action.payload.updatedBookInfo);
           return {
-            ...state,
+            // ...book,
             ...action.payload.updatedBookInfo,
           };
         }
