@@ -17,6 +17,9 @@ export default function Book({ book }) {
   const handleBookDelete = (bookId) => {
     dispatch(deleteFromDB(bookId));
   };
+  const handleBookEdit = (bookId) => {
+    console.log(`bookId`, bookId);
+  };
 
   return (
     <div className="book-card">
@@ -33,7 +36,7 @@ export default function Book({ book }) {
             <div></div>
           )}
           <div className="text-gray-500 space-x-2">
-            <button className="lws-edit">
+            <button onClick={() => handleBookEdit(id)} className="lws-edit">
               <svg
                 fill="none"
                 viewBox="0 0 24 24"

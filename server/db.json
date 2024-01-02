@@ -46,13 +46,12 @@
       "id": 8
     },
     {
-      "name": "Eloquent JavaScript, 3rd Edition",
-      "author": "Marijn Haverbeke",
-      "thumbnail": "https://m.media-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
-      "price": 23.99,
-      "rating": 4,
+      "bookName": "kjdsfa",
+      "author": "sadfjsa",
+      "thumbnail": "sdfkja",
+      "price": "123",
       "featured": true,
-      "id": 9
+      "id": 10
     }
   ]
 }
